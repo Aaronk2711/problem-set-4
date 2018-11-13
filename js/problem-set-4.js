@@ -94,25 +94,12 @@ function inches() {
   let inches = input; // DO NOT MODIFY
   ////////////////////// DO NOT MODIFY
 
-  if (inches >= 63360) {
-    var miles = (inches / 63360).toFixed(0);
-    var remainder = (inches % 63360).toFixed(0);
-    inches = inches - (inches * miles).toFixed(0);
-  }
-
-  if (inches >= 36) {
-    var yards = (inches / 36).toFixed(0);
-    var remainder = (inches % 36).toFixed(0);
-    inches = inches - (inches * miles).toFixed(0);
-  }
-
-  if (inches >= 12) {
-    var feet = (inches / 12).toFixed(0);
-    var remainder = (inches % 12).toFixed(0);
-    inches = inches - (inches * feet).toFixed(0);
-  }
-
-  document.getElementById("output5").innerHTML = miles;
+  var miles=Math.floor(inches/63360);
+  var yards=Math.floor((inches - (miles*63360))/36);
+  var feet=Math.floor((inches - (miles*63360) - (yards*36))/12);
+  inches=Math.floor((inches - (miles*63360) - (yards*36) - (feet*12))/1);
+  
+  document.getElementById("output5").innerHTML="Miles: " + miles + "<br/>Yards: " + yards + "<br/>Feet: " + feet + "<br/>Inches: " + inches;
 
 
 
