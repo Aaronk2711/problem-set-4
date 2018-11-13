@@ -4,7 +4,7 @@
 
 function hello() {
 
-  // WRITE YOUR EXERCISE 1 CODE HERE
+  document.getElementById("output1").innerHTML = "Hello, AP Computer Science Principles!";
 
   ////////////////// DO NOT MODIFY
   check("hello"); // DO NOT MODIFY
@@ -24,7 +24,8 @@ function helloAgain() {
   // Use the name variable declared above to store the user's response. You
   // do not need to re-declare it, only assign it a value.
 
-  // WRITE YOUR EXERCISE 2 CODE HERE
+  name = prompt ("What is your name?");
+  document.getElementById("output2") .innerHTML = "Hello, " + name + "!";
 
   ///////////////////////////// DO NOT MODIFY
   check("helloAgain", name); // DO NOT MODIFY
@@ -44,7 +45,9 @@ function celsius() {
   // The above code generates a random number between -100 and 1000
   // (inclusive), and rounds this value to 2 decimal places.
 
-  // WRITE YOUR EXERCISE 3 CODE HERE
+  var fahrenheit = ((cels * 9/5) + 32).toFixed(2);
+  document.getElementById("output3").innerHTML = cels + " degrees Celsius equals " +
+  fahrenheit + " degrees Fahrenheit.";
 
   ////////////////////////// DO NOT MODIFY
   check("celsius", cels); // DO NOT MODIFY
@@ -64,7 +67,10 @@ function fahrenheit() {
   // The above code generates a random number between -100 and 1000
   // (inclusive), and rounds this value to 2 decimal places.
 
-  // WRITE YOUR EXERCISE 4 CODE HERE
+  var celsius = ((fahr -32) * 5/9).toFixed(2);
+  document.getElementById("output4").innerHTML = fahr + " degrees Fahrenheit equals " +
+  celsius + " degrees Celsius.";
+
 
   ///////////////////////////// DO NOT MODIFY
   check("fahrenheit", fahr); // DO NOT MODIFY
@@ -88,7 +94,28 @@ function inches() {
   let inches = input; // DO NOT MODIFY
   ////////////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 5 CODE HERE
+  if (inches >= 63360) {
+    var miles = (inches / 63360).toFixed(0);
+    var remainder = (inches % 63360).toFixed(0);
+    inches = inches - (inches * miles).toFixed(0);
+  }
+
+  if (inches >= 36) {
+    var yards = (inches / 36).toFixed(0);
+    var remainder = (inches % 36).toFixed(0);
+    inches = inches - (inches * miles).toFixed(0);
+  }
+
+  if (inches >= 12) {
+    var feet = (inches / 12).toFixed(0);
+    var remainder = (inches % 12).toFixed(0);
+    inches = inches - (inches * feet).toFixed(0);
+  }
+
+  document.getElementById("output5").innerHTML = miles;
+
+
+
 
   ////////////////////////// DO NOT MODIFY
   check("inches", input); // DO NOT MODIFY
