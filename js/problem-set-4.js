@@ -94,10 +94,10 @@ function inches() {
   let inches = input; // DO NOT MODIFY
   ////////////////////// DO NOT MODIFY
 
-  let miles=Math.floor(inches/63360);
-  let yards=Math.floor((inches - (miles*63360))/36);
-  let feet=Math.floor((inches - (miles*63360) - (yards*36))/12);
-  inches=Math.floor((inches - (miles*63360) - (yards*36) - (feet*12))/1);
+  let miles = Math.floor(inches/63360);
+  let yards = Math.floor((inches - (miles*63360))/36);
+  let feet = Math.floor((inches - (miles*63360) - (yards*36))/12);
+  inches = ((inches - (miles*63360) - (yards*36) - (feet*12))/1);
 
   document.getElementById("output5").innerHTML="Miles: " + miles + "<br/>Yards: " + yards + "<br/>Feet: " + feet + "<br/>Inches: " + inches;
 
@@ -126,9 +126,9 @@ function centimeters() {
   let centimeters = input; // DO NOT MODIFY
   /////////////////////////// DO NOT MODIFY
 
-  let kilometers=Math.floor(centimeters/100000);
-  let meters=Math.floor((centimeters - (kilometers*100000))/100);
-  centimeters=Math.floor(centimeters - (kilometers*100000) - (meters*100));
+  let kilometers = Math.floor(centimeters/100000);
+  let meters = Math.floor((centimeters - (kilometers*100000))/100);
+  centimeters = (centimeters - (kilometers*100000) - (meters*100));
 
   document.getElementById("output6").innerHTML="Kilometers: " + kilometers + "<br/>Meters: " + meters + "<br/>Centimeters: " + centimeters;
 
@@ -154,11 +154,11 @@ function fluidOunces() {
   let fluidOunces = input; // DO NOT MODIFY
   /////////////////////////// DO NOT MODIFY
 
-  let gallons=Math.floor(fluidOunces/128);
-  let quarts=Math.floor((fluidOunces - (gallons*128))/32);
-  let pints=Math.floor((fluidOunces - (gallons*128) - (quarts*32))/16);
-  let cups=Math.floor((fluidOunces - (gallons*128) - (quarts*32) - (pints*16))/8);
-  fluidOunces=Math.floor((fluidOunces - (gallons*128) - (quarts*32) - (pints*16) - (cups*8)));
+  let gallons = Math.floor(fluidOunces/128);
+  let quarts = Math.floor((fluidOunces - (gallons*128))/32);
+  let pints = Math.floor((fluidOunces - (gallons*128) - (quarts*32))/16);
+  let cups = Math.floor((fluidOunces - (gallons*128) - (quarts*32) - (pints*16))/8);
+  fluidOunces = ((fluidOunces - (gallons*128) - (quarts*32) - (pints*16) - (cups*8)));
 
   document.getElementById("output7").innerHTML = "Gallons: " + gallons + "<br/>Quarts: " + quarts + "<br/>Pints: " + pints + "<br/>Cups: " + cups + "<br/>Fluid Ounces: " + fluidOunces;
 
@@ -184,9 +184,9 @@ function ounces() {
   let ounces = input; // DO NOT MODIFY
   ////////////////////// DO NOT MODIFY
 
-  let tons=Math.floor(ounces/32000);
-  let pounds=Math.floor((ounces - (tons*32000))/16);
-  ounces=Math.floor(ounces - (tons*32000) - (pounds*16));
+  let tons = Math.floor(ounces/32000);
+  let pounds = Math.floor((ounces - (tons*32000))/16);
+  ounces = (ounces - (tons*32000) - (pounds*16));
 
   document.getElementById("output8").innerHTML="Tons: " + tons + "<br/>Pounds: " + pounds + "<br/>Ounces: " + ounces;
 
@@ -212,11 +212,11 @@ function money() {
   let pennies = input; // DO NOT MODIFY
   /////////////////////// DO NOT MODIFY
 
-  let dollars=Math.floor(pennies/100);
-  let quarters=Math.floor((pennies - (dollars*100))/25);
-  let dimes=Math.floor((pennies - (dollars*100) - (quarters*25))/10);
-  let nickels=Math.floor((pennies - (dollars*100) - (quarters*25) - (dimes*10))/5);
-  pennies=Math.floor((pennies - (dollars*100) - (quarters*25) - (dimes*10) - (nickels*5)));
+  let dollars = Math.floor(pennies/100);
+  let quarters = Math.floor((pennies - (dollars*100))/25);
+  let dimes = Math.floor((pennies - (dollars*100) - (quarters*25))/10);
+  let nickels = Math.floor((pennies - (dollars*100) - (quarters*25) - (dimes*10))/5);
+  pennies = ((pennies - (dollars*100) - (quarters*25) - (dimes*10) - (nickels*5)));
 
   document.getElementById("output9").innerHTML = "Dollars: " + dollars + "<br/>Quarters: " + quarters + "<br/>Dimes: " + dimes + "<br/>Nickels: " + nickels + "<br/>Pennies: " + pennies;
 
@@ -242,12 +242,14 @@ function change() {
   let amount = input; // DO NOT MODIFY
   ////////////////////// DO NOT MODIFY
 
-  let quarters=Math.floor(amount/25);
-  let dimes=Math.floor((amount - (quarters*25))/10);
-  let nickels=Math.floor((amount - (dimes*10))/5);
-  amount=Math.floor((amount - (quarters*25) - (dimes*10) - (nickels*5)));
+  amount *= 100
+  let quarters = Math.floor(amount/25);
+  let dimes = Math.floor((amount - (quarters*25))/10);
+  let nickels = Math.floor((amount - (quarters * 25) - (dimes*10))/05);
+  let pennies = Math.floor((amount - (quarters*25) - (dimes * 10) - (nickels*05)));
+  let total = quarters + dimes + nickels + pennies;
 
-  document.getElementById("output10").innerHTML = "Quarters: " + quarters + "<br/>Dimes: " + dimes + "<br/>Nickels: " + nickels + "<br/>Pennies: " + amount;
+  document.getElementById("output10").innerHTML = total + " coins.";
 
   ////////////////////////// DO NOT MODIFY
   check("change", input); // DO NOT MODIFY
